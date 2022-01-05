@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'siginClipper.dart';
 import 'package:proste_bezier_curve/proste_bezier_curve.dart';
@@ -34,9 +33,9 @@ class SigninContainer extends StatelessWidget {
                 color: Color.fromRGBO(80, 86, 96, 1),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 158, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 100, horizontal: 30),
                 child: Text('TBINA ERPS',
-                    textAlign: TextAlign.left,
+                    textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: Colors.white,

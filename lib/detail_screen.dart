@@ -169,158 +169,166 @@ class _DetailWebPageState extends State<DetailWebPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 16,
-        horizontal: 64,
-      ),
-      child: Center(
-        child: Container(
-          width: 1200,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Wisata Bandung',
-                style: TextStyle(
-                  fontFamily: 'Oxygen',
-                  fontSize: 32,
-                ),
-              ),
-              SizedBox(height: 32),
-              Row(
-                children: [
-                  Expanded(
+            padding: const EdgeInsets.symmetric(
+              vertical: 16,
+              horizontal: 64,
+            ),
+            child: Center(
+                child: SingleChildScrollView(
                     child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: Colors.lightGreen,
-                                child: IconButton(
-                                  icon: Icon(
-                                    Icons.arrow_back,
-                                    color: Colors.white,
-                                  ),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                              ),
-                              FavoriteButton(),
-                            ],
-                          ),
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  width: 1200,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Wisata Bandung',
+                        style: TextStyle(
+                          fontFamily: 'Oxygen',
+                          fontSize: 32,
                         ),
-                        ClipRRect(
-                          child: Image.asset(widget.place.imageAsset),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-
-                        SizedBox(height: 16),
-                        Scrollbar(
-                          isAlwaysShown: true,
-                          controller: _scrollController,
-                          child: Container(
-                            height: 150,
-                            padding: const EdgeInsets.only(bottom: 16),
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              controller: _scrollController,
-                              children: widget.place.imageUrls.map((url) {
-                                return Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Image.network(url),
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 32),
-                  Expanded(
-                    child: Card(
-                      child: Container(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: <Widget>[
-                            Container(
-                              child: Text(
-                                widget.place.name,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 30.0,
-                                  fontFamily: 'Staatliches',
-                                ),
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      ),
+                      SizedBox(height: 32),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
                               children: [
-                                Row(
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: Colors.lightGreen,
+                                        child: IconButton(
+                                          icon: Icon(
+                                            Icons.arrow_back,
+                                            color: Colors.white,
+                                          ),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                      ),
+                                      FavoriteButton(),
+                                    ],
+                                  ),
+                                ),
+                                ClipRRect(
+                                  child: Image.asset(widget.place.imageAsset),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                SizedBox(height: 16),
+                                Scrollbar(
+                                  isAlwaysShown: true,
+                                  controller: _scrollController,
+                                  child: Container(
+                                    height: 150,
+                                    padding: const EdgeInsets.only(bottom: 16),
+                                    child: ListView(
+                                      scrollDirection: Axis.horizontal,
+                                      controller: _scrollController,
+                                      children:
+                                          widget.place.imageUrls.map((url) {
+                                        return Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Image.network(url),
+                                          ),
+                                        );
+                                      }).toList(),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 32),
+                          Expanded(
+                            child: Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
                                   children: <Widget>[
-                                    Icon(Icons.calendar_today),
-                                    SizedBox(width: 8.0),
-                                    Text(
-                                      widget.place.openDays,
-                                      style: infoTextStyle,
+                                    Container(
+                                      child: Text(
+                                        widget.place.name,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 30.0,
+                                          fontFamily: 'Staatliches',
+                                        ),
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: <Widget>[
+                                            Icon(Icons.calendar_today),
+                                            SizedBox(width: 8.0),
+                                            Text(
+                                              widget.place.openDays,
+                                              style: infoTextStyle,
+                                            ),
+                                          ],
+                                        ),
+                                        FavoriteButton(),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(Icons.access_time),
+                                        SizedBox(width: 8.0),
+                                        Text(
+                                          widget.place.openTime,
+                                          style: infoTextStyle,
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 8.0),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(Icons.monetization_on),
+                                        SizedBox(width: 8.0),
+                                        Text(
+                                          widget.place.ticketPrice,
+                                          style: infoTextStyle,
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 16.0),
+                                      child: Text(
+                                        widget.place.description,
+                                        textAlign: TextAlign.justify,
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontFamily: 'Oxygen',
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
-                                FavoriteButton(),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Icon(Icons.access_time),
-                                SizedBox(width: 8.0),
-                                Text(
-                                  widget.place.openTime,
-                                  style: infoTextStyle,
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 8.0),
-                            Row(
-                              children: <Widget>[
-                                Icon(Icons.monetization_on),
-                                SizedBox(width: 8.0),
-                                Text(
-                                  widget.place.ticketPrice,
-                                  style: infoTextStyle,
-                                ),
-                              ],
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(vertical: 16.0),
-                              child: Text(
-                                widget.place.description,
-                                textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontFamily: 'Oxygen',
-                                ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    ));
+                ),
+              ],
+            )))));
   }
 }
 

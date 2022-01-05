@@ -13,6 +13,7 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   bool obscureText = true;
+
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -58,20 +59,18 @@ class _SignInPageState extends State<SignInPage> {
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
-      hintText: 'Masukkan password',
-      border: OutlineInputBorder(),
-      suffixIcon: IconButton(
-        icon: Icon(obscureText
-            ? Icons.visibility
-            : Icons.visibility_off),
-        onPressed: () {
-          setState(() {
-            obscureText = !obscureText;
-          });
-        },
-      ),
-      isDense: true,
-    ),
+            hintText: 'Masukkan password',
+            border: OutlineInputBorder(),
+            suffixIcon: IconButton(
+              icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              },
+            ),
+            isDense: true,
+          ),
         ),
       ],
     );
@@ -151,6 +150,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width_ = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SizedBox(
         height: height,
@@ -166,10 +166,16 @@ class _SignInPageState extends State<SignInPage> {
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       children: [
-                        SizedBox(height: height * .55),
-                        _usernameWidget(),
-                        SizedBox(height: 20),
-                        _passwordWidget(),
+                        Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            width: width_ > 700? width_*0.5 : width_,
+                            child: Column(children: [
+                              SizedBox(height: height * .55),
+                              _usernameWidget(),
+                              SizedBox(height: 20),
+                              _passwordWidget(),
+                            ])),
+
                         SizedBox(height: 30),
                         _submitButton(),
                         SizedBox(height: height * .050),

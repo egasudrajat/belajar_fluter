@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wisata_bandung/GestureDetect.dart';
 import 'package:wisata_bandung/main_screen.dart';
+import 'navigation_and_routing/FirstScreen.dart';
 
 class Dashboard extends StatelessWidget {
   @override
@@ -78,7 +80,7 @@ class Dashboard extends StatelessWidget {
                                   style: TextStyle(
                                       color: Colors.grey,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
+                                      fontSize: 16),
                                 ),
                                 SizedBox(
                                   height: 5.0,
@@ -95,7 +97,9 @@ class Dashboard extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return FirstScreen();
+                      }));},
                       child: SizedBox(
                         width: 160.0,
                         height: 160.0,
@@ -117,11 +121,12 @@ class Dashboard extends StatelessWidget {
                                   height: 10.0,
                                 ),
                                 Text(
-                                  "Todo List",
+                                  "Navigation & Routing",
                                   style: TextStyle(
                                       color: Colors.grey,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
+                                      fontSize: 16.0),
+                                  textAlign: TextAlign.center,
                                 ),
                                 SizedBox(
                                   height: 5.0,
@@ -138,7 +143,9 @@ class Dashboard extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return GestureDetect();
+                      }));},
                       child: SizedBox(
                         width: 160.0,
                         height: 160.0,
@@ -160,7 +167,7 @@ class Dashboard extends StatelessWidget {
                                   height: 10.0,
                                 ),
                                 Text(
-                                  "Todo List",
+                                  "Gesture Detect",
                                   style: TextStyle(
                                       color: Colors.grey,
                                       fontWeight: FontWeight.bold,
