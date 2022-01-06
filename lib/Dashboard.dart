@@ -1,7 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wisata_bandung/GestureDetect.dart';
+import 'package:wisata_bandung/barcode_scanner/Scanner.dart';
 import 'package:wisata_bandung/kalkulator/MainKalkulator.dart';
 import 'package:wisata_bandung/main_screen.dart';
+import 'package:wisata_bandung/silvers/PixelPage.dart';
+import 'package:wisata_bandung/silvers_list_grid/LearningPathPage.dart';
 import 'navigation_and_routing/FirstScreen.dart';
 
 class Dashboard extends StatelessWidget {
@@ -14,134 +18,177 @@ class Dashboard extends StatelessWidget {
           backgroundColor: Colors.lightBlue,
         ),
         body: SafeArea(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-          Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <Widget>[
-                Icon(
-                  Icons.menu,
-                  color: Colors.grey,
-                  size: 52.0,
-                ),
-                Image.asset(
-                  "images/image.png",
-                  width: 52.0,
-                )
-              ])),
-          Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Text(
-                "Welcome Ega Sudrajat",
-                style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.start,
-              )),
-          Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Center(
-                  child: Wrap(spacing: 20, runSpacing: 20.0, children: <Widget>[
-                InkWell(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return MainScreen();
-                      }));
-                    },
-                    child: SizedBox(
-                        width: 160.0,
-                        height: 160.0,
-                        child: Card(
-                            color: Color.fromARGB(255, 210, 250, 199),
-                            elevation: 2.0,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-                            child: Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(children: <Widget>[
-                                      Image.asset("images/todo.png", width: 64.0),
-                                      SizedBox(height: 10.0),
-                                      Text("Lembang", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 16)),
-                                      SizedBox(
-                                        height: 5.0,
-                                      ),
-                                      Text("Wisata bandung", style: TextStyle(color: Colors.grey, fontSize: 12))
-                                    ])))))),
-                InkWell(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return FirstScreen();
-                      }));
-                    },
-                    child: SizedBox(
-                        width: 160.0,
-                        height: 160.0,
-                        child: Card(
-                            color: Color.fromARGB(255, 210, 250, 199),
-                            elevation: 2.0,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-                            child: Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(children: <Widget>[
-                                      Image.asset(
-                                        "images/note.png",
-                                        width: 64.0,
-                                      ),
-                                      SizedBox(
-                                        height: 10.0,
-                                      ),
-                                      Text(
-                                        "Navigation & Routing",
-                                        style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 16.0),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      SizedBox(
-                                        height: 5.0,
-                                      ),
-                                      Text(
-                                        "2 Items",
-                                        style: TextStyle(color: Colors.grey, fontSize: 12),
-                                      )
-                                    ])))))),
-                InkWell(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return GestureDetect();
-                      }));
-                    },
-                    child: SizedBox(
-                        width: 160.0,
-                        height: 160.0,
-                        child: Card(
-                            color: Color.fromARGB(255, 210, 250, 199),
-                            elevation: 2.0,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-                            child: Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(children: <Widget>[
-                                      Image.asset("images/calendar.png", width: 64.0),
-                                      SizedBox(height: 10.0),
-                                      Text("Gesture Detect", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20.0))
-                                    ])))))),
-                InkWell(
-                    onTap: () {    Navigator.push(context, MaterialPageRoute(builder: (context) {
+            child: SingleChildScrollView(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: <Widget>[
+            Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(children: <Widget>[
+                  Image.asset("images/image.png", width: 52.0),
+                  SizedBox(width: 10),
+                  Text("Ega Sudrajat", style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.start)
+                ])),
+            Wrap(spacing: 10, runSpacing: 10.0, children: <Widget>[
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return MainScreen();
+                    }));
+                  },
+                  child: SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: Card(
+                          color: Color.fromARGB(255, 210, 250, 199),
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: <Widget>[
+                                    Image.asset("images/todo.png", width: 34.0),
+                                    SizedBox(height: 10.0),
+                                    Text("Bandung", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0)),
+                                    SizedBox(
+                                      height: 5.0,
+                                    ),
+                                  ])))))),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return FirstScreen();
+                    }));
+                  },
+                  child: SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: Card(
+                          color: Color.fromARGB(255, 210, 250, 199),
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: <Widget>[
+                                    Image.asset(
+                                      "images/note.png",
+                                      width: 34.0,
+                                    ),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    Text(
+                                      "Navigation & Routing",
+                                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0),
+                                      textAlign: TextAlign.center,
+                                    )
+                                  ])))))),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return GestureDetect();
+                    }));
+                  },
+                  child: SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: Card(
+                          color: Color.fromARGB(255, 210, 250, 199),
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: <Widget>[
+                                    Image.asset("images/calendar.png", width: 34.0),
+                                    SizedBox(height: 10.0),
+                                    Text("Gesture Detect", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0))
+                                  ])))))),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
                       return MainKalkulator();
-                    }));},
-                    child: SizedBox(
-                        width: 160.0,
-                        height: 160.0,
-                        child: Card(
-                            color: Color.fromARGB(255, 210, 250, 199),
-                            elevation: 2.0,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-                            child: Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(children: <Widget>[
-                                      Image.asset("images/settings.png", width: 64.0),
-                                      SizedBox(height: 10.0),
-                                      Text("Kalkulator", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20.0)),
-                                    ]))))))
-              ])))
-        ])));
+                    }));
+                  },
+                  child: SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: Card(
+                          color: Color.fromARGB(255, 210, 250, 199),
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: <Widget>[
+                                    Image.asset("images/settings.png", width: 34.0),
+                                    SizedBox(height: 10.0),
+                                    Text("Kalkulator", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0)),
+                                  ])))))),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return PixelPage();
+                    }));
+                  },
+                  child: SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: Card(
+                          color: Color.fromARGB(255, 210, 250, 199),
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: <Widget>[
+                                    Image.asset("images/settings.png", width: 34.0),
+                                    SizedBox(height: 10.0),
+                                    Text("Silvers", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0)),
+                                  ])))))),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return LearningPathPage();
+                    }));
+                  },
+                  child: SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: Card(
+                          color: Color.fromARGB(255, 210, 250, 199),
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: <Widget>[
+                                    Image.asset("images/settings.png", width: 34.0),
+                                    SizedBox(height: 10.0),
+                                    Text("Silvers List & Grid", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0)),
+                                  ])))))),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return ScannerQR();
+                    }));
+                  },
+                  child: SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: Card(
+                          color: Color.fromARGB(255, 210, 250, 199),
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: <Widget>[
+                                    Icon(Icons.qr_code, size: 34, color: Colors.deepOrange),
+                                    SizedBox(height: 10.0),
+                                    Text("ScannerQR", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0)),
+                                  ]))))))
+            ])
+          ]),
+        )));
   }
 }

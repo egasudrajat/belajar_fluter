@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.egasdt.net.wisata_bandung">
+    <uses-permission android:name="android.permission.CAMERA" />
    <application
         android:label="wisata_bandung"
         android:name="${applicationName}"

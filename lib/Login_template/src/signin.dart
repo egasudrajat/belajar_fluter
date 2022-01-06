@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_bandung/Dashboard.dart';
+
 import 'Widget/singinContainer.dart';
 import 'signup.dart';
-import 'package:wisata_bandung/main_screen.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -81,26 +81,19 @@ class _SignInPageState extends State<SignInPage> {
       alignment: Alignment.centerRight,
       child: InkWell(
         onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Dashboard()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
         },
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
             'Sign in',
-            style: TextStyle(
-                color: Color.fromRGBO(0, 194, 95, 1.0),
-                fontSize: 25,
-                fontWeight: FontWeight.w500,
-                height: 1.6),
+            style: TextStyle(color: Color.fromRGBO(0, 194, 95, 1.0), fontSize: 25, fontWeight: FontWeight.w500, height: 1.6),
           ),
           SizedBox.fromSize(
             size: Size.square(70.0), // button width and height
             child: ClipOval(
               child: Material(
                 color: Color.fromRGBO(45, 196, 12, 1.0),
-                child: Icon(Icons.arrow_forward,
-                    color: Colors.white), // button color
+                child: Icon(Icons.arrow_forward, color: Colors.white), // button color
               ),
             ),
           ),
@@ -117,15 +110,10 @@ class _SignInPageState extends State<SignInPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           InkWell(
-            onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SignUpPage())),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage())),
             child: Text(
               'Register',
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
-                  decorationThickness: 2),
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, decorationThickness: 2),
             ),
           ),
           InkWell(
@@ -135,11 +123,7 @@ class _SignInPageState extends State<SignInPage> {
             // },
             child: Text(
               'Forgot Password',
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
-                  decorationThickness: 2),
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, decorationThickness: 2),
             ),
           ),
         ],
@@ -156,9 +140,7 @@ class _SignInPageState extends State<SignInPage> {
         height: height,
         child: Stack(
           children: [
-            Positioned(
-                height: MediaQuery.of(context).size.height * 0.50,
-                child: SigninContainer()),
+            Positioned(height: MediaQuery.of(context).size.height * 0.50, child: SigninContainer()),
             SingleChildScrollView(
               child: Column(
                 children: <Widget>[
@@ -168,14 +150,13 @@ class _SignInPageState extends State<SignInPage> {
                       children: [
                         Container(
                             padding: EdgeInsets.symmetric(horizontal: 20),
-                            width: width_ > 700? width_*0.5 : width_,
+                            width: width_ > 700 ? width_ * 0.5 : width_,
                             child: Column(children: [
                               SizedBox(height: height * .55),
                               _usernameWidget(),
                               SizedBox(height: 20),
                               _passwordWidget(),
                             ])),
-
                         SizedBox(height: 30),
                         _submitButton(),
                         SizedBox(height: height * .050),
