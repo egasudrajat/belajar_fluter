@@ -30,3 +30,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+  // Future _loadSampleJson() async {
+  //   String jsonString = await rootBundle.loadString("assets/local_restaurant.json");
+  //   final jsonData = json.decode(jsonString);
+  //   Model model = Model.fromJson(jsonData);
+  //   print(model.toString());
+  // }
+
+
