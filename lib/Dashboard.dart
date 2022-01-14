@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wisata_bandung/GestureDetect.dart';
+import 'package:wisata_bandung/SelectedListItem.dart';
 import 'package:wisata_bandung/barcode_scanner/Scanner.dart';
 import 'package:wisata_bandung/http/SimpleHttpRequest.dart';
 import 'package:wisata_bandung/kalkulator/MainKalkulator.dart';
@@ -230,6 +231,27 @@ class Dashboard extends StatelessWidget {
                                     Icon(Icons.signal_cellular_alt, size: 34, color: Colors.deepOrange),
                                     SizedBox(height: 10.0),
                                     Text("Http Request", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0)),
+                                  ])))))),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return SelectedListItem();
+                    }));
+                  },
+                  child: SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: Card(
+                          color: Color.fromARGB(255, 210, 250, 199),
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(children: <Widget>[
+                                    Icon(Icons.signal_cellular_alt, size: 34, color: Colors.deepOrange),
+                                    SizedBox(height: 10.0),
+                                    Text("List Item Selected", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 13.0)),
                                   ]))))))
             ])
           ]),
